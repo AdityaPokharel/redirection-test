@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+<script>
+function getMobileOperatingSystem() {
+  var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    if (/android/i.test(userAgent)) {
+        return "Android";
+    }
+    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        return "iOS";
+    }
+
+    return "unknown";
+}</script>
+
+<script>
+function DetectAndServe(){
+    let os = getMobileOperatingSystem();
+    if (os == "Android") {
+        window.location.href = "https://play.google.com/store/apps/details?id=sg.gov.hdb.parking"; 
+    } else if (os == "iOS") {
+        window.location.href = "https://apps.apple.com/sg/app/parking-hdb/id1527959949";
+    } else {
+        window.location.href = "https://www.hdb.gov.sg/car-parks/parkinghdb";
+    }
+}
+</script>
+</head>
+<body onload="DetectAndServe()">
+    <p>Please wait...</p>
+</body>
+</html>
